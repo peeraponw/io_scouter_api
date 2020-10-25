@@ -22,7 +22,7 @@ def load_model():
 	model = joblib.load("./model/clf_log_tfidf_20201022.joblib")
 	vectorizer = joblib.load("./model/vectorizer_20201022.joblib")
 	return model, vectorizer
-loaded_model, vectorizer = load_model()
+
 
 def text_treatment(_text):   
     result = re.sub(r"http\S+", "", _text)
@@ -30,7 +30,7 @@ def text_treatment(_text):
     return result 
 
 def inference(_user_input):
-
+	loaded_model, vectorizer = load_model()
 	treat_text = text_treatment(_user_input)
 
 	test_ls = word_tokenize(treat_text)
