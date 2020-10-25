@@ -45,6 +45,9 @@ def getAPI():
 	y_val = inference(user_input)
 	return {"io_prob": y_val}
 
+@app.route("/hello")
+def hello():
+	return "hello world"
 
 if __name__ == "__main__":
 	loaded_model, vectorizer = load_model()
