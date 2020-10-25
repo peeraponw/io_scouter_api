@@ -16,6 +16,8 @@ app.secret_key = os.urandom(24)
 app.debug = True
 app.config["JSON_AS_ASCII"] = False
 
+loaded_model, vectorizer = load_model()
+
 def load_model():
 	model = joblib.load("./model/clf_log_tfidf_20201022.joblib")
 	vectorizer = joblib.load("./model/vectorizer_20201022.joblib")
@@ -52,5 +54,5 @@ def hello():
 	return "hello world"
 
 if __name__ == "__main__":
-	loaded_model, vectorizer = load_model()
+	
 	app.run()
