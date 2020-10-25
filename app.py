@@ -3,6 +3,13 @@ import os
 import json
 from datetime import datetime
 import sys
+import joblib
+from pythainlp.tokenize import word_tokenize
+import re
+import numpy as np
+import pandas as pd
+
+
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
@@ -34,12 +41,11 @@ def inference(_user_input):
 
 @app.route("/api")
 def getAPI():
-	user_input = requests.args.get("text", type=str, default="")
+	user_input = request.args.get("text", type=str, default="")
 	y_val = inference(user_input)
-
 	return {"io_prob": y_val}
 
 
 if __name__ == "__main__":
 	loaded_model, vectorizer = load_model()
-	app.run()
+	app.run(debug=True)
