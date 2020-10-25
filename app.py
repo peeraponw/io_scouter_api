@@ -12,6 +12,7 @@ import pandas as pd
 
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 app.config["JSON_AS_ASCII"] = False
 
 def load_model():
