@@ -48,4 +48,4 @@ def getAPI():
 
 if __name__ == "__main__":
 	loaded_model, vectorizer = load_model()
-	app.run(debug=True)
+	app.run()
