@@ -8,10 +8,11 @@ from pythainlp.tokenize import word_tokenize
 import re
 import numpy as np
 import pandas as pd
-
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = os.urandom(24)
 app.config["JSON_AS_ASCII"] = False
 
